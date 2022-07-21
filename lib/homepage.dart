@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   var _speechToText = stts.SpeechToText();
   GoogleTranslator translator = GoogleTranslator();
 
+  //This Function will translate the text generated from voice to Bangla
   void translate() {
     translator.translate(textLine, to: 'bn').then((value) {
       setState(() {
@@ -25,6 +26,8 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+
+  //This function allows to enable mic for converting the speech to text
   void listen() async {
     if (!isListening) {
       bool available = await _speechToText.initialize(
